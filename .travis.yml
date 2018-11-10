@@ -1,11 +1,10 @@
 language: node_js
 node_js:
   - "node"
-script:
-  - yarn test
 jobs:
   include:
-    - stage: npm release
+    - script: yarn test
+    - stage: publish
       if: tag IS present
       node_js: "node"
       script: yarn build
