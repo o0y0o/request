@@ -1,5 +1,5 @@
 {
-  "name": "@shining/request",
+  "name": "@shinin/request",
   "version": "1.0.0",
   "description": "Easy-to-fetch HTTP client for the browser.",
   "main": "dist/request.cjs.js",
@@ -8,6 +8,9 @@
   "repository": "https://github.com/shiningjason/request",
   "author": "Jason Chung <shiningjason1989@gmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "format": "prettier --single-quote --no-semi --write '{*.js,src/**/*.js,test/**/*.js}'",
     "lint": "eslint *.js src test",
