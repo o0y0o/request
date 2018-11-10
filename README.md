@@ -32,7 +32,7 @@ Request
 ```
 npm install @shining/request --save
 ```
-As an alternative to using npm, you can user `Request` from the CDN. You will also need [fetch polyfill](https://github.com/github/fetch) for and [Promise polyfill](https://github.com/taylorhakes/promise-polyfill) for old browsers (Check out compatibility information at [caniuse/fetch](https://caniuse.com/#search=fetch) and [caniuse/Promises](https://caniuse.com/#feat=promises)).
+As an alternative to using npm, you can user `Request` from the CDN. You will also need [fetch polyfill](https://github.com/github/fetch) and [Promise polyfill](https://github.com/taylorhakes/promise-polyfill) for old browsers (Check out compatibility information at [caniuse/fetch](https://caniuse.com/#search=fetch) and [caniuse/Promises](https://caniuse.com/#feat=promises)).
 
 ## Usage
 
