@@ -1,6 +1,6 @@
 {
   "name": "@shinin/request",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easy-to-fetch HTTP client for the browser.",
   "main": "dist/request.cjs.js",
   "module": "dist/request.esm.js",
