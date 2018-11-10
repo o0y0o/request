@@ -1,4 +1,4 @@
-# Request.js
+# Request.js · [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/shiningjason/request/blob/master/LICENSE.md) [![Build Status](https://travis-ci.org/shiningjason/request.svg?branch=master)](https://travis-ci.org/shiningjason/request)
 
 `Request` is a tiny [fetch](https://fetch.spec.whatwg.org/) wrapper tried to make HTTP request code more readable and more easy to write.
 
