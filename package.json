@@ -1,0 +1,51 @@
+{
+  "name": "@0y0/request",
+  "version": "1.0.0",
+  "description": "Easy-to-fetch HTTP client for the browser.",
+  "main": "dist/request.cjs.js",
+  "browser": "dist/request.min.js",
+  "repository": "https://github.com/o0y0o/request",
+  "author": "Jason Chung <shiningjason1989@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/"
+  ],
+  "keywords": [
+    "fetch",
+    "http",
+    "https",
+    "http-client",
+    "http-request",
+    "network",
+    "request"
+  ],
+  "scripts": {
+    "format": "prettier --write '{*,src/**/*}.js'",
+    "lint": "eslint '{*,src/**/*}.js'",
+    "test": "BABEL_ENV=test mocha -r @babel/register src/**/*.test.js",
+    "prebuild": "yarn lint && yarn test",
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/register": "^7.10.5",
+    "@rollup/plugin-babel": "^5.1.0",
+    "babel-eslint": "10.1.0",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "fetch-mock": "^9.10.6",
+    "form-data": "^3.0.0",
+    "mocha": "^8.1.1",
+    "node-fetch": "^2.6.0",
+    "rollup": "^2.25.0",
+    "rollup-plugin-terser": "^7.0.0"
+  },
+  "optionalDependencies": {
+    "prettier": "^2.0.5"
+  }
+}
