@@ -108,4 +108,4 @@ Request.get('/api').acceptJson()
 
 ## License
 
-MIT
+[MIT](https://github.com/shiningjason/request/blob/master/LICENSE.md)
