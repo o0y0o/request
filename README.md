@@ -1,4 +1,4 @@
-# Request.js · [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/shiningjason/request/blob/master/LICENSE.md) [![Build Status](https://travis-ci.org/shiningjason/request.svg?branch=master)](https://travis-ci.org/shiningjason/request)
+# Request.js · [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/shiningjason/request/blob/master/LICENSE.md) [![npm](https://img.shields.io/npm/v/@shinin/request.svg)](https://www.npmjs.com/package/@shinin/request) [![Build Status](https://travis-ci.org/shiningjason/request.svg?branch=master)](https://travis-ci.org/shiningjason/request)
 
 `Request` is a tiny [fetch](https://fetch.spec.whatwg.org/) wrapper tried to make HTTP request code more readable and more easy to write.
 
@@ -32,7 +32,18 @@ Request
 ```
 npm install @shinin/request --save
 ```
-As an alternative to using npm, you can user `Request` from the CDN. You will also need [fetch polyfill](https://github.com/github/fetch) and [Promise polyfill](https://github.com/taylorhakes/promise-polyfill) for old browsers (Check out compatibility information at [caniuse/fetch](https://caniuse.com/#search=fetch) and [caniuse/Promises](https://caniuse.com/#feat=promises)).
+
+As an alternative to using npm, you can use `Request` as a `<script>` tag from a [CDN](https://unpkg.com/@shinin/request). You will also need [Promise polyfill](https://github.com/taylorhakes/promise-polyfill) and [fetch polyfill](https://github.com/github/fetch) for old browsers (Check out compatibility at [caniuse/fetch](https://caniuse.com/#search=fetch) and [caniuse/Promises](https://caniuse.com/#feat=promises)).
+
+```html
+<!--
+Use promise-polyfill and whatwg-fetch only if you want to support old browsers.
+Check out Promise and fetch compatibility at http://caniuse.com.
+-->
+<script src="https://unpkg.com/promise-polyfill"></script>
+<script src="https://unpkg.com/whatwg-fetch"></script>
+<script src="https://unpkg.com/@shinin/request"></script>
+```
 
 ## Usage
 
