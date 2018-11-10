@@ -4,6 +4,7 @@ node_js:
 jobs:
   include:
     - script: yarn test
+      if: branch != master OR tag IS blank
     - stage: publish
       if: tag IS present
       node_js: "node"
