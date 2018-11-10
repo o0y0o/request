@@ -11,6 +11,15 @@
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "fetch",
+    "http",
+    "https",
+    "http-client",
+    "http-request",
+    "network",
+    "request"
+  ],
   "scripts": {
     "format": "prettier --single-quote --no-semi --write '{*.js,src/**/*.js,test/**/*.js}'",
     "lint": "eslint *.js src test",
