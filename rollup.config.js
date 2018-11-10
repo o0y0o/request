@@ -3,10 +3,7 @@ import { uglify } from 'rollup-plugin-uglify'
 import pkg from './package.json'
 
 const input = './src/request.js'
-const babelPlugin = babel({
-  exclude: 'node_modules/**',
-  externalHelpers: false
-})
+const babelPlugin = babel({ exclude: 'node_modules/**' })
 
 export default [
   {
