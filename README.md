@@ -119,4 +119,4 @@ Request.get('/api').acceptJson()
 
 ## License
 
-[MIT](https://github.com/shiningjason/request/blob/master/LICENSE.md)
+[MIT](https://github.com/shiningjason/request/blob/master/LICENSE)
