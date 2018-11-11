@@ -1,6 +1,6 @@
-# Request.js · [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/shiningjason/request/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/@shinin/request.svg)](https://www.npmjs.com/package/@shinin/request) [![Build Status](https://travis-ci.org/shiningjason/request.svg?branch=master)](https://travis-ci.org/shiningjason/request)
+# @shinin/request · [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/shiningjason/request/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/@shinin/request.svg)](https://www.npmjs.com/package/@shinin/request) [![Build Status](https://travis-ci.org/shiningjason/request.svg?branch=master)](https://travis-ci.org/shiningjason/request)
 
-`Request` is a tiny [fetch](https://fetch.spec.whatwg.org/) wrapper tried to make HTTP request code more readable and more easy to write.
+`@shinin/request` is a tiny [window.fetch](https://fetch.spec.whatwg.org/) wrapper tried to make HTTP request code more readable and more easy to write.
 
 ### Before
 
@@ -33,7 +33,7 @@ Request
 npm install @shinin/request --save
 ```
 
-As an alternative to using npm, you can use `Request` as a `<script>` tag from a [CDN](https://unpkg.com/@shinin/request). You will also need [Promise polyfill](https://github.com/taylorhakes/promise-polyfill) and [fetch polyfill](https://github.com/github/fetch) for old browsers (Check out compatibility at [caniuse/fetch](https://caniuse.com/#search=fetch) and [caniuse/Promises](https://caniuse.com/#feat=promises)).
+As an alternative to using npm, you can use `@shinin/request` as a `<script>` tag from a [CDN](https://unpkg.com/@shinin/request). You will also need [Promise polyfill](https://github.com/taylorhakes/promise-polyfill) and [fetch polyfill](https://github.com/github/fetch) for old browsers (Check out compatibility at [caniuse/fetch](https://caniuse.com/#search=fetch) and [caniuse/Promises](https://caniuse.com/#feat=promises)).
 
 ```html
 <!--
