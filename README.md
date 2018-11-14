@@ -36,7 +36,7 @@ npm install @shinin/request --save
 import Request from '@shinin/request'
 ```
 
-As an alternative to using npm, you can use `@shinin/request` as a `<script>` tag from a [CDN](https://unpkg.com/@shinin/request). You will also need [Promise polyfill](https://github.com/taylorhakes/promise-polyfill) and [fetch polyfill](https://github.com/github/fetch) for old browsers (Check out compatibility at [caniuse/fetch](https://caniuse.com/#search=fetch) and [caniuse/Promises](https://caniuse.com/#feat=promises)).
+As an alternative to using npm, you can use `@shinin/request` as a `<script>` tag from a [CDN](https://unpkg.com/@shinin/request/dist/request.min.js). You will also need [Promise polyfill](https://github.com/taylorhakes/promise-polyfill) and [fetch polyfill](https://github.com/github/fetch) for old browsers (Check out compatibility at [caniuse/fetch](https://caniuse.com/#search=fetch) and [caniuse/Promises](https://caniuse.com/#feat=promises)).
 
 ```html
 <!--
@@ -45,7 +45,7 @@ Check out Promise and fetch compatibility at http://caniuse.com.
 -->
 <script src="https://unpkg.com/promise-polyfill"></script>
 <script src="https://unpkg.com/whatwg-fetch"></script>
-<script src="https://unpkg.com/@shinin/request"></script>
+<script src="https://unpkg.com/@shinin/request/dist/request.min.js"></script>
 <script>Request.get('http://...')</script>
 ```
 

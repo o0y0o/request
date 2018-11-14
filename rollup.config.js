@@ -13,10 +13,6 @@ export default [
         file: pkg.main,
         format: 'cjs',
         interop: false
-      },
-      {
-        file: pkg.module,
-        format: 'esm'
       }
     ],
     plugins: [babelPlugin]
@@ -24,7 +20,7 @@ export default [
   {
     input,
     output: {
-      file: pkg.browser,
+      file: pkg.main.replace('cjs', 'min'),
       format: 'iife',
       name: 'Request'
     },
