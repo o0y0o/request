@@ -22,9 +22,9 @@
     "lint": "eslint '{*,src/**/*}.js'",
     "test": "BABEL_ENV=test mocha -r @babel/register src/**/*.test.js",
     "build": "rollup -c",
-    "publish:node": "cd ./packages/node && yarn publish",
-    "publish:web": "cd ./packages/web && yarn publish",
-    "publish": "yarn publish:node & yarn publish:web & wait"
+    "pkg:node": "cd ./packages/node && yarn publish",
+    "pkg:web": "cd ./packages/web && yarn publish",
+    "pkg": "yarn pkg:node & yarn pkg:web & wait"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
