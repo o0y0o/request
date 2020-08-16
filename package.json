@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Easy-to-fetch HTTP client for the browser.",
   "main": "dist/request.cjs.js",
+  "browser": "dist/request.min.js",
   "repository": "https://github.com/o0y0o/request",
   "author": "Jason Chung <shiningjason1989@gmail.com>",
   "license": "MIT",

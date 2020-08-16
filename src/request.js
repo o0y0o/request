@@ -58,7 +58,7 @@ export default function Request(_url, _method) {
     return value && url.searchParams.set(key, value), self
   }
   function setParams(data) {
-    return Object.entries(data).forEach(e => setParam(e[0], e[1])), self
+    return Object.keys(data).forEach(k => setParam(k, data[k])), self
   }
   function setBody(data) {
     return data && (body = data), self
@@ -69,8 +69,8 @@ export default function Request(_url, _method) {
   }
   function setFormBody(data) {
     return setBody(
-      Object.entries(data).reduce(
-        (f, e) => (f.append(e[0], e[1]), f),
+      Object.keys(data).reduce(
+        (f, k) => (f.append(k, data[k]), f),
         new FormData()
       )
     )
@@ -78,8 +78,8 @@ export default function Request(_url, _method) {
   function setUrlencodedFormBody(data) {
     setHeader(HEADER_CONTENT_TYPE, CONTENT_TYPE_FORM_URLENCODED)
     return setBody(
-      Object.entries(data).reduce(
-        (p, e) => (p.set(e[0], e[1]), p),
+      Object.keys(data).reduce(
+        (p, k) => (p.set(k, data[k]), p),
         new URLSearchParams()
       )
     )

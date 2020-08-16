@@ -1,6 +1,6 @@
-# @shinin/request · [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/shiningjason/request/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/@shinin/request.svg)](https://www.npmjs.com/package/@shinin/request) [![Build Status](https://travis-ci.org/shiningjason/request.svg?branch=master)](https://travis-ci.org/shiningjason/request)
+# @0y0/request · [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/o0y0o/request/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/@0y0/request.svg)](https://www.npmjs.com/package/@0y0/request) ![Build Status](https://github.com/o0y0o/request/workflows/.github/workflows/build.yml/badge.svg)
 
-`@shinin/request` is a tiny [window.fetch](https://fetch.spec.whatwg.org/) wrapper tried to make HTTP request code more readable and more easy to write.
+`@0y0/request` is a tiny [window.fetch](https://fetch.spec.whatwg.org/) wrapper tried to make HTTP request code more readable and more easy to write.
 
 ### Before
 
@@ -9,7 +9,7 @@ fetch('/users/1', {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json'
-    'Authorization': 'JWT this-is-user-token'
+    'Authorization': 'Bearer this-is-user-token'
   },
   body: JSON.stringify({
     email: 'foo@gmail.com',
@@ -23,20 +23,20 @@ fetch('/users/1', {
 ```js
 Request
   .post('/users/1')
-  .jwt('this-is-user-token')
+  .bearer('this-is-user-token')
   .jsonBody({ email: 'foo@gmail.com', name: 'bar' })
   .then(handleResponse, handleError)
 ```
 
 ## Installation
 ```
-npm install @shinin/request --save
+npm install @0y0/request --save
 ```
 ```js
-import Request from '@shinin/request'
+import Request from '@0y0/request'
 ```
 
-As an alternative to using npm, you can use `@shinin/request` as a `<script>` tag from a [CDN](https://unpkg.com/@shinin/request/dist/request.min.js). You will also need [Promise polyfill](https://github.com/taylorhakes/promise-polyfill) and [fetch polyfill](https://github.com/github/fetch) for old browsers (Check out compatibility at [caniuse/fetch](https://caniuse.com/#search=fetch) and [caniuse/Promises](https://caniuse.com/#feat=promises)).
+As an alternative to using npm, you can use `@0y0/request` as a `<script>` tag from a [CDN](https://unpkg.com/@0y0/request/dist/request.min.js). You will also need [Promise polyfill](https://github.com/taylorhakes/promise-polyfill) and [fetch polyfill](https://github.com/github/fetch) for old browsers (Check out compatibility at [caniuse/fetch](https://caniuse.com/#search=fetch) and [caniuse/Promises](https://caniuse.com/#feat=promises)).
 
 ```html
 <!--
@@ -45,7 +45,7 @@ Check out Promise and fetch compatibility at http://caniuse.com.
 -->
 <script src="https://unpkg.com/promise-polyfill"></script>
 <script src="https://unpkg.com/whatwg-fetch"></script>
-<script src="https://unpkg.com/@shinin/request/dist/request.min.js"></script>
+<script src="https://unpkg.com/@0y0/request/dist/request.min.js"></script>
 <script>Request.get('http://...')</script>
 ```
 
@@ -66,9 +66,6 @@ Request.get('/api').header('foo', 'bar')
 
 // headers: { Authorization: 'bar' }
 Request.get('/api').auth('bar')
-
-// headers: { Authorization: 'JWT token' }
-Request.get('/api').jwt('token')
 
 // headers: { Authorization: 'Bearer token' }
 Request.get('/api').bearer('token')
@@ -118,9 +115,9 @@ Request.get('/api').acceptJson()
 
 - Chrome
 - Firefox
-- Safari 6.1+
-- IE 10+
+- Safari 10.1+
+- IE 10+ (Should use with [fetch](https://github.com/github/fetch), [URL, URLSearchParams](https://github.com/lifaon74/url-polyfill) and [FormData](https://github.com/jimmywarting/FormData) polyfills)
 
 ## License
 
-[MIT](https://github.com/shiningjason/request/blob/master/LICENSE)
+[MIT](https://github.com/o0y0o/request/blob/master/LICENSE)
