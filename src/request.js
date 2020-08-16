@@ -1,5 +1,3 @@
-/* global fetch FormData location */
-
 const HEAEDR_AUTHORIZATION = 'Authorization'
 const HEADER_CONTENT_TYPE = 'Content-Type'
 const CONTENT_TYPE_JSON = 'application/json'
@@ -20,12 +18,10 @@ function throwHttpError(status, reason) {
 function handleHttpStatus(response) {
   const { status, statusText } = response
   if (status >= 200 && status < 300) return response
-  return response
-    .json()
-    .then(
-      data => throwHttpError(status, data),
-      () => throwHttpError(status, statusText)
-    )
+  return response.json().then(
+    data => throwHttpError(status, data),
+    () => throwHttpError(status, statusText)
+  )
 }
 
 export default function Request(pUrl, pMethod) {

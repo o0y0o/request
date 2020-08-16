@@ -1,8 +1,7 @@
-/* global describe it */
 import assert from 'assert'
 import fetchMock from 'fetch-mock'
 import FormData from 'form-data'
-import Request from '../src/request'
+import Request from './request'
 
 const testUrl = 'https://foo.bar'
 
@@ -77,9 +76,7 @@ describe('Request', () => {
 
   it('should send request with URL parameter', async () => {
     fetchMock.mock('*', 200)
-    await Request.get(testUrl)
-      .param('foo', 'bar')
-      .param('bar', null)
+    await Request.get(testUrl).param('foo', 'bar').param('bar', null)
     assert.strictEqual(fetchMock.lastUrl(), `${testUrl}/?foo=bar`)
     fetchMock.reset()
   })
