@@ -1,0 +1,27 @@
+{
+  "name": "@0y0/request",
+  "version": "1.0.1",
+  "description": "Easy-to-fetch HTTP client for the browser.",
+  "browser": "request.min.js",
+  "main": "request.js",
+  "repository": "https://github.com/o0y0o/request",
+  "author": "Jason Chung <shiningjason1989@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/"
+  ],
+  "keywords": [
+    "fetch",
+    "http",
+    "https",
+    "http-client",
+    "http-request",
+    "network",
+    "request",
+    "web",
+    "browser"
+  ]
+}

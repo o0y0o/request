@@ -1,20 +1,41 @@
+import path from 'path'
 import babel from '@rollup/plugin-babel'
+import inject from '@rollup/plugin-inject'
 import { terser } from 'rollup-plugin-terser'
-import pkg from './package.json'
+import nodePkg from './packages/node/package.json'
+import webPkg from './packages/web/package.json'
 
 const input = require.resolve('./src/request.js')
-const babelConfig = { exclude: 'node_modules/**', babelHelpers: 'runtime' }
+const plugins = [babel({ exclude: 'node_modules/**', babelHelpers: 'runtime' })]
 
-const pkgConfig = {
+const nodeConfig = {
   input,
-  plugins: [babel(babelConfig)],
-  output: { file: pkg.main, format: 'cjs', exports: 'default' }
+  plugins: [...plugins, inject({ fetch: 'node-fetch', FormData: 'form-data' })],
+  external: ['form-data', 'node-fetch'],
+  output: {
+    file: path.join(__dirname, 'packages/node', nodePkg.main),
+    format: 'cjs',
+    exports: 'default',
+    interop: false
+  }
 }
 
-const browserConfig = {
+const webConfig = {
   input,
-  plugins: [babel(babelConfig), terser()],
-  output: { file: pkg.browser, format: 'iife', name: 'Request' }
+  plugins,
+  output: [
+    {
+      file: path.join(__dirname, 'packages/web', webPkg.main),
+      format: 'cjs',
+      exports: 'default'
+    },
+    {
+      file: path.join(__dirname, 'packages/web', webPkg.browser),
+      format: 'iife',
+      name: 'Request',
+      plugins: [terser()]
+    }
+  ]
 }
 
-export default [pkgConfig, browserConfig]
+export default [nodeConfig, webConfig]
