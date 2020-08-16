@@ -1,4 +1,4 @@
-# @0y0/request · [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/o0y0o/request/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/@0y0/request.svg)](https://www.npmjs.com/package/@0y0/request) ![Build Status](https://github.com/o0y0o/request/workflows/.github/workflows/package.yml/badge.svg)
+# @0y0/request · [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/o0y0o/request/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/@0y0/request.svg)](https://www.npmjs.com/package/@0y0/request) ![Build Status](https://github.com/o0y0o/request/workflows/Package/badge.svg)
 
 `@0y0/request` is a tiny [window.fetch](https://fetch.spec.whatwg.org/) wrapper tried to make HTTP request code more readable and more easy to write.
 
@@ -36,7 +36,7 @@ npm install @0y0/request --save
 import Request from '@0y0/request'
 ```
 
-As an alternative to using npm, you can use `@0y0/request` as a `<script>` tag from a [CDN](https://unpkg.com/@0y0/request/dist/request.min.js). You will also need [Promise polyfill](https://github.com/taylorhakes/promise-polyfill) and [fetch polyfill](https://github.com/github/fetch) for old browsers (Check out compatibility at [caniuse/fetch](https://caniuse.com/#search=fetch) and [caniuse/Promises](https://caniuse.com/#feat=promises)).
+As an alternative to using npm, you can use `@0y0/request` as a `<script>` tag from a [CDN](https://unpkg.com/@0y0/request/dist/request.min.js). You will also need [Promise polyfill](https://github.com/taylorhakes/promise-polyfill) and [fetch polyfill](https://github.com/github/fetch) for old browsers (Check out compatibility at [caniuse/Promises](https://caniuse.com/#feat=promises) and [caniuse/fetch](https://caniuse.com/#search=fetch)).
 
 ```html
 <!--
@@ -116,7 +116,7 @@ Request.get('/api').acceptJson()
 - Chrome
 - Firefox
 - Safari 10.1+
-- IE 10+ (Should use with [fetch](https://github.com/github/fetch), [URL, URLSearchParams](https://github.com/lifaon74/url-polyfill) and [FormData](https://github.com/jimmywarting/FormData) polyfills)
+- IE 10+ (Should use with [Promise](https://github.com/taylorhakes/promise-polyfill), [fetch](https://github.com/github/fetch), [URL, URLSearchParams](https://github.com/lifaon74/url-polyfill) and [FormData](https://github.com/jimmywarting/FormData) polyfills)
 
 ## License
 
