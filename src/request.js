@@ -10,34 +10,31 @@ const METHOD_DELETE = 'DELETE'
 
 function throwHttpError(status, reason) {
   const httpError = new Error(status)
-  httpError.code = status + ''
+  httpError.code = status
   httpError.reason = reason
   throw httpError
 }
 
-function handleHttpStatus(response) {
-  const { status, statusText } = response
-  if (status >= 200 && status < 300) return response
-  return response.json().then(
-    data => throwHttpError(status, data),
-    () => throwHttpError(status, statusText)
-  )
+function handleHttpStatus(res) {
+  const { status, statusText } = res
+  if (status >= 200 && status < 300) return res
+  throwHttpError(status, statusText)
 }
 
-export default function Request(pUrl, pMethod) {
-  if (!pUrl) throw new TypeError('URL is required')
+export default function Request(_url, _method) {
+  if (!_url) throw new TypeError('URL is required')
+
   const self = this
-  const url = pUrl.startsWith('/')
-    ? new URL(pUrl, location.origin)
-    : new URL(pUrl)
-  const method = pMethod || METHOD_GET
+  const url = _url.startsWith('/')
+    ? new URL(_url, location.origin)
+    : new URL(_url)
+  const method = _method || METHOD_GET
   const headers = {}
   let body
   let handleResponse = res => res
 
   self.header = setHeader
   self.auth = setAuthorization
-  self.jwt = setJwt
   self.bearer = setBearerToken
   self.param = setParam
   self.params = setParams
@@ -49,29 +46,22 @@ export default function Request(pUrl, pMethod) {
   self.then = startFetching
 
   function setHeader(name, value) {
-    if (value) headers[name] = value
-    return self
+    return value && (headers[name] = value), self
   }
   function setAuthorization(token) {
     return setHeader(HEAEDR_AUTHORIZATION, token)
   }
-  function setJwt(token) {
-    return token ? setAuthorization('JWT ' + token) : self
-  }
   function setBearerToken(token) {
-    return token ? setAuthorization('Bearer ' + token) : self
+    return token ? setAuthorization(`Bearer ${token}`) : self
   }
   function setParam(key, value) {
-    if (value) url.searchParams.set(key, value)
-    return self
+    return value && url.searchParams.set(key, value), self
   }
   function setParams(data) {
-    if (data) Object.keys(data).forEach(key => setParam(key, data[key]))
-    return self
+    return Object.entries(data).forEach(e => setParam(e[0], e[1])), self
   }
   function setBody(data) {
-    if (data) body = data
-    return self
+    return data && (body = data), self
   }
   function setJsonBody(data) {
     setHeader(HEADER_CONTENT_TYPE, CONTENT_TYPE_JSON)
@@ -79,32 +69,27 @@ export default function Request(pUrl, pMethod) {
   }
   function setFormBody(data) {
     return setBody(
-      Object.keys(data).reduce((formData, key) => {
-        formData.append(key, data[key])
-        return formData
-      }, new FormData())
+      Object.entries(data).reduce(
+        (f, e) => (f.append(e[0], e[1]), f),
+        new FormData()
+      )
     )
   }
   function setUrlencodedFormBody(data) {
     setHeader(HEADER_CONTENT_TYPE, CONTENT_TYPE_FORM_URLENCODED)
     return setBody(
-      Object.keys(data).reduce((searchParams, key) => {
-        searchParams.set(key, data[key])
-        return searchParams
-      }, new URLSearchParams())
+      Object.entries(data).reduce(
+        (p, e) => (p.set(e[0], e[1]), p),
+        new URLSearchParams()
+      )
     )
   }
   function setJsonResponseHandler() {
-    handleResponse = res => res.json()
-    return self
+    return (handleResponse = res => res.json()), self
   }
   function startFetching(onFulfill, onReject) {
-    return fetch(url, {
-      method,
-      headers,
-      body
-    })
-      .then(handleHttpStatus, () => throwHttpError('000', 'Network Error'))
+    return fetch(url, { method, headers, body })
+      .then(handleHttpStatus, () => throwHttpError(999, 'Network Error'))
       .then(handleResponse)
       .then(onFulfill, onReject)
   }

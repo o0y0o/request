@@ -8,32 +8,30 @@ const testUrl = 'https://foo.bar'
 describe('Request', () => {
   global.FormData = FormData
 
+  afterEach(() => fetchMock.reset())
+
   it('should send GET request', async () => {
-    fetchMock.mock(testUrl, 200)
+    fetchMock.get(testUrl, 200)
     const res = await Request.get(testUrl)
     assert(res.ok)
-    fetchMock.restore()
   })
 
   it('should send POST request', async () => {
-    fetchMock.mock(testUrl, 200, { method: 'POST' })
+    fetchMock.post(testUrl, 200)
     const res = await Request.post(testUrl)
     assert(res.ok)
-    fetchMock.reset()
   })
 
   it('should send PUT request', async () => {
-    fetchMock.mock(testUrl, 200, { method: 'PUT' })
+    fetchMock.put(testUrl, 200)
     const res = await Request.put(testUrl)
     assert(res.ok)
-    fetchMock.reset()
   })
 
   it('should send DELETE request', async () => {
-    fetchMock.mock(testUrl, 200, { method: 'DELETE' })
+    fetchMock.delete(testUrl, 200)
     const res = await Request.delete(testUrl)
     assert(res.ok)
-    fetchMock.reset()
   })
 
   it('should send request with custom headers', async () => {
@@ -41,95 +39,80 @@ describe('Request', () => {
       'x-custom-key1': 'value1',
       'x-custom-key2': 'value2'
     }
-    fetchMock.mock(testUrl, 200, { headers })
+    fetchMock.get(testUrl, 200, { headers })
     const res = await Request.get(testUrl)
       .header('x-custom-key1', 'value1')
       .header('x-custom-key2', 'value2')
       .header('x-custom-key3', undefined)
     assert(res.ok)
-    fetchMock.reset()
   })
 
   it('should send request with authorization header', async () => {
     const headers = { Authorization: 'value' }
-    fetchMock.mock(testUrl, 200, { headers })
-    await Request.get(testUrl).auth('value')
-    assert.deepStrictEqual(fetchMock.lastOptions().headers, headers)
-    fetchMock.reset()
-  })
-
-  it('should send request with JWT authorization header', async () => {
-    const headers = { Authorization: 'JWT tokenValue' }
-    fetchMock.mock(testUrl, 200, { headers })
-    await Request.get(testUrl).jwt('tokenValue')
-    assert.deepStrictEqual(fetchMock.lastOptions().headers, headers)
-    fetchMock.reset()
+    fetchMock.get(testUrl, 200, { headers })
+    const res = await Request.get(testUrl).auth('value')
+    assert(res.ok)
   })
 
   it('should send request with bearer authorization header', async () => {
     const headers = { Authorization: 'Bearer tokenValue' }
-    fetchMock.mock(testUrl, 200, { headers })
-    await Request.get(testUrl).bearer('tokenValue')
-    assert.deepStrictEqual(fetchMock.lastOptions().headers, headers)
-    fetchMock.reset()
+    fetchMock.get(testUrl, 200, { headers })
+    const res = await Request.get(testUrl).bearer('tokenValue')
+    assert(res.ok)
   })
 
   it('should send request with URL parameter', async () => {
-    fetchMock.mock('*', 200)
-    await Request.get(testUrl).param('foo', 'bar').param('bar', null)
-    assert.strictEqual(fetchMock.lastUrl(), `${testUrl}/?foo=bar`)
-    fetchMock.reset()
+    const query = { foo: 'bar' }
+    fetchMock.get(testUrl, 200, { query })
+    const res = await Request.get(testUrl).param('foo', 'bar')
+    assert(res.ok)
   })
 
   it('should send request with URL parameters', async () => {
-    fetchMock.mock('*', 200)
-    await Request.get(testUrl).params({ foo: 'bar', bar: null })
-    assert.strictEqual(fetchMock.lastUrl(), `${testUrl}/?foo=bar`)
-    fetchMock.reset()
+    const query = { foo: 'bar' }
+    fetchMock.get(testUrl, 200, { query })
+    const res = await Request.get(testUrl).params(query)
+    assert(res.ok)
   })
 
   it('should send request with body', async () => {
-    fetchMock.mock(testUrl, 200, { method: 'POST' })
-    await Request.post(testUrl).body('bodyValue')
-    assert.strictEqual(fetchMock.lastOptions().body, 'bodyValue')
-    fetchMock.reset()
+    const body = 'bodyValue'
+    fetchMock.post(testUrl, 200)
+    const res = await Request.post(testUrl).body(body)
+    const { body: actualBody } = fetchMock.lastOptions()
+    assert(res.ok)
+    assert.strictEqual(actualBody, body)
   })
 
   it('should send request with JSON body', async () => {
     const body = { foo: 'bar', bar: 'foo' }
-    fetchMock.mock(testUrl, 200, { method: 'POST' })
-    await Request.post(testUrl).jsonBody(body)
-    assert.strictEqual(fetchMock.lastOptions().body, JSON.stringify(body))
-    fetchMock.reset()
+    fetchMock.post(testUrl, 200, { body })
+    const res = await Request.post(testUrl).jsonBody(body)
+    assert(res.ok)
   })
 
   it('should send request with form body', async () => {
     const body = { foo: 'bar', bar: 'foo' }
-    fetchMock.mock(testUrl, 200, { method: 'POST' })
-    await Request.post(testUrl).formBody(body)
-    assert(fetchMock.lastOptions().body instanceof FormData)
-    fetchMock.reset()
+    fetchMock.post(testUrl, 200)
+    const res = await Request.post(testUrl).formBody(body)
+    const { body: actualBody } = fetchMock.lastOptions()
+    assert(res.ok)
+    assert(actualBody instanceof FormData)
   })
 
   it('should send request with URL-encoded form body', async () => {
     const body = { foo: 'bar', bar: 'foo' }
-    fetchMock.mock(testUrl, 200, { method: 'POST' })
+    fetchMock.post(testUrl, 200)
     await Request.post(testUrl).urlencodedFormBody(body)
-    const actualBody = fetchMock.lastOptions().body
-    const paramKeys = Array.from(actualBody.keys())
-    assert.deepStrictEqual(
-      paramKeys.reduce((obj, k) => ({ ...obj, [k]: actualBody.get(k) }), {}),
-      body
-    )
-    fetchMock.reset()
+    const { body: actualBody } = fetchMock.lastOptions()
+    assert.deepStrictEqual(Object.fromEntries(actualBody.entries()), body)
   })
 
   it('should accept and parse JSON response', async () => {
     const body = { foo: 'bar', bar: 'foo' }
-    fetchMock.mock(testUrl, { body })
-    const response = await Request.get(testUrl).acceptJson()
-    assert.deepStrictEqual(response, body)
-    fetchMock.reset()
+    fetchMock.get(testUrl, { body })
+    const res = await Request.get(testUrl).acceptJson()
+    assert.deepStrictEqual(res, body)
   })
 
   it('should handle 404 Not Found', async () => {
@@ -137,20 +120,18 @@ describe('Request', () => {
     try {
       await Request.get(`${testUrl}`)
     } catch (error) {
-      assert.strictEqual(error.code, '404')
+      assert.strictEqual(error.code, 404)
       assert.strictEqual(error.reason, 'Not Found')
     }
-    fetchMock.reset()
   })
 
-  it('should handle internet disconnected', async () => {
+  it('should handle internet error', async () => {
     fetchMock.mock(testUrl, { throws: new Error() })
     try {
       await Request.get(`${testUrl}`)
     } catch (error) {
-      assert.strictEqual(error.code, '000')
+      assert.strictEqual(error.code, 999)
       assert.strictEqual(error.reason, 'Network Error')
     }
-    fetchMock.reset()
   })
 })
