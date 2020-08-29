@@ -42,6 +42,6 @@
     "node-fetch": "^2.6.0",
     "prettier": "^2.0.5",
     "rollup": "^2.26.5",
-    "rollup-plugin-terser": "^7.0.0"
+    "rollup-plugin-terser": "^7.0.1"
   }
 }
