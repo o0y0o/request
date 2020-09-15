@@ -1,4 +1,4 @@
-# @0y0/node-request · [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/o0y0o/request/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/@0y0/node-request.svg)](https://www.npmjs.com/package/@0y0/node-request) ![Build Status](https://github.com/o0y0o/request/workflows/Package/badge.svg)
+# @0y0/node-request · [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/o0y0o/request/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/@0y0/node-request.svg)](https://www.npmjs.com/package/@0y0/node-request)
 
 `@0y0/node-request` is a tiny [fetch](https://fetch.spec.whatwg.org/) wrapper tried to make HTTP request code more readable and more easy to write.
 
