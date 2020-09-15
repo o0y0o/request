@@ -1,4 +1,4 @@
-# o0y0o/request · [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/o0y0o/request/blob/master/LICENSE) ![Test Status](https://github.com/o0y0o/request/workflows/Test/badge.svg) ![Package Status](https://github.com/o0y0o/request/workflows/Package/badge.svg)
+# o0y0o/request · [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/o0y0o/request/blob/master/LICENSE) ![Test Status](https://github.com/o0y0o/request/workflows/Test/badge.svg) ![Package Status](https://github.com/o0y0o/request/workflows/Package/badge.svg) ![Test Status](https://github.com/o0y0o/request/workflows/Test/badge.svg)
 
 `o0y0o/request` is a easy-to-fetch HTTP client for the browser and NodeJS.
 
