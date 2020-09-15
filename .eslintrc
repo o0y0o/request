@@ -1,18 +1,9 @@
 {
-  "parser": "babel-eslint",
-  "extends": ["eslint:recommended", "prettier"],
+  "extends": "@0y0/eslint-config-vanilla",
   "overrides": [
-    {
-      "files": "rollup.config.js",
-      "env": { "node": true }
-    },
     {
       "files": "src/*.js",
       "env": { "browser": true }
-    },
-    {
-      "files": "src/*.test.js",
-      "env": { "mocha": true, "node": true }
     }
   ]
 }

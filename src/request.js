@@ -1,3 +1,5 @@
+/* eslint-disable no-sequences */
+
 const HEAEDR_AUTHORIZATION = 'Authorization'
 const HEADER_CONTENT_TYPE = 'Content-Type'
 const CONTENT_TYPE_JSON = 'application/json'
