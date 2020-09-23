@@ -30,7 +30,7 @@ const webConfig = {
       exports: 'default'
     },
     {
-      file: path.join(__dirname, 'packages/web', webPkg.browser),
+      file: path.join(__dirname, 'packages/web', webPkg.iife),
       format: 'iife',
       name: 'Request',
       plugins: [terser()]
