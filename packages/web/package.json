@@ -1,6 +1,6 @@
 {
   "name": "@0y0/request",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Easy-to-fetch HTTP client for the browser.",
   "main": "request.js",
   "iife": "request.min.js",
