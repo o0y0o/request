@@ -29,7 +29,7 @@ Request
 ```
 
 ## Installation
-```
+```sh
 npm install @0y0/node-request --save
 ```
 ```js
