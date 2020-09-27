@@ -29,9 +29,11 @@ Request
 ```
 
 ## Installation
+
 ```sh
 npm install @0y0/request --save
 ```
+
 ```js
 import Request from '@0y0/request'
 ```
@@ -52,6 +54,7 @@ Check out Promise and fetch compatibility at http://caniuse.com.
 ## Usage
 
 ### Send a request
+
 ```js
 Reqeust.get('/api')
 Reqeust.post('/api')
@@ -60,6 +63,7 @@ Reqeust.delete('/api')
 ```
 
 ### Set HTTP header
+
 ```js
 // headers: { foo: 'bar' }
 Request.get('/api').header('foo', 'bar')
