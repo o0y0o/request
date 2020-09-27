@@ -29,9 +29,11 @@ Request
 ```
 
 ## Installation
+
 ```sh
 npm install @0y0/node-request --save
 ```
+
 ```js
 import Request from '@0y0/node-request'
 ```
@@ -39,6 +41,7 @@ import Request from '@0y0/node-request'
 ## Usage
 
 ### Send a request
+
 ```js
 Reqeust.get('/api')
 Reqeust.post('/api')
@@ -47,6 +50,7 @@ Reqeust.delete('/api')
 ```
 
 ### Set HTTP header
+
 ```js
 // headers: { foo: 'bar' }
 Request.get('/api').header('foo', 'bar')
