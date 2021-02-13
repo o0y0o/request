@@ -28,9 +28,9 @@
   },
   "devDependencies": {
     "@0y0/eslint-config-vanilla": "^1.1.2",
-    "@babel/core": "^7.12.13",
+    "@babel/core": "^7.12.16",
     "@babel/plugin-transform-runtime": "^7.12.13",
-    "@babel/preset-env": "^7.12.13",
+    "@babel/preset-env": "^7.12.16",
     "@babel/register": "^7.12.13",
     "@rollup/plugin-babel": "^5.2.3",
     "@rollup/plugin-inject": "^4.0.2",
