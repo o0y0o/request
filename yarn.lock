@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-"@0y0/babel-preset-vanilla@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@0y0/babel-preset-vanilla/-/babel-preset-vanilla-1.1.0.tgz#e20ffafb72c3153b7d3e7e921b6340ce28376af9"
-  integrity sha512-tJK0xpJC/VYfoVyj0a0HGerv12nnWdD90hCECUE6WwicA002cGKC2NDA/FYl3DmAipbN74UZFBz1EiPdfwz2Ow==
+"@0y0/babel-preset-vanilla@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@0y0/babel-preset-vanilla/-/babel-preset-vanilla-1.1.1.tgz#42afce369bbf5ef519251c5e437892f187f0c5a4"
+  integrity sha512-RFGGKe1rQ4nPlEmgK7ul2mmmMwhccS7O2BYnL/H3Z2EDfv2Pcg8kQQjRG+csPD5bVm+I8kYlqmqBfTUh00WAhA==
   dependencies:
-    "@babel/core" ">=7.0.0"
+    "@babel/core" "^7.0.0"
     "@babel/plugin-proposal-class-properties" "^7.13.0"
     "@babel/plugin-proposal-decorators" "^7.13.5"
     "@babel/plugin-proposal-do-expressions" "^7.12.13"
@@ -23,12 +23,12 @@
     babel-plugin-module-resolver "^4.1.0"
     babel-plugin-transform-imports "^2.0.0"
 
-"@0y0/eslint-config-vanilla@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@0y0/eslint-config-vanilla/-/eslint-config-vanilla-1.2.1.tgz#8e30329d54ae3ed35f2aeb76032ca323ae753e9a"
-  integrity sha512-m38RTw4GBkF5CAKYOJzMaDY3vhem7mGOxzHg2Dhixa3k/SCo+gXAiP5xN7OjCQjnThlQlPDUVjeoQhgM3ob3SA==
+"@0y0/eslint-config-vanilla@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@0y0/eslint-config-vanilla/-/eslint-config-vanilla-1.2.2.tgz#e8ec7313a91c27a3af44fd6c5d77f370fc484200"
+  integrity sha512-qGJO9XlrSz5hRxMnVrDR18KIGoYUygOgJCoweDCy3BeOxZ+No99zhDjnSh/heZvtn7KgsimwaTaiPCS+mPjhcA==
   dependencies:
-    "@babel/core" ">=7.0.0"
+    "@babel/core" "^7.0.0"
     "@babel/eslint-parser" "^7.13.8"
     eslint-config-prettier "^8.1.0"
     eslint-config-standard "^16.0.2"
@@ -55,7 +55,7 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.13.8.tgz#5b783b9808f15cef71547f1b691f34f8ff6003a6"
   integrity sha512-EaI33z19T4qN3xLXsGf48M2cDqa6ei9tPZlfLdb2HC+e/cFtREiRd8hdSqDbwdLB0/+gLwqJmCYASH0z2bUdog==
 
-"@babel/core@>=7.0.0", "@babel/core@^7.0.0":
+"@babel/core@^7.0.0":
   version "7.13.8"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.13.8.tgz#c191d9c5871788a591d69ea1dc03e5843a3680fb"
   integrity sha512-oYapIySGw1zGhEFRd6lzWNLWFX2s5dA/jm+Pw/+59ZdXtjyIuwlXbrId22Md0rgZVop+aVoqow2riXhBLNyuQg==
