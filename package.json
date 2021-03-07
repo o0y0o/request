@@ -36,7 +36,7 @@
     "fetch-mock": "^9.11.0",
     "form-data": "^4.0.0",
     "lerna": "^3.22.1",
-    "mocha": "^8.3.0",
+    "mocha": "^8.3.1",
     "node-fetch": "^2.6.1",
     "prettier": "^2.2.1",
     "rollup": "^2.40.0",
