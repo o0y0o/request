@@ -1,6 +1,6 @@
 /* eslint-disable no-sequences */
 
-const HEAEDR_AUTHORIZATION = 'Authorization'
+const HEADER_AUTHORIZATION = 'Authorization'
 const HEADER_CONTENT_TYPE = 'Content-Type'
 const CONTENT_TYPE_JSON = 'application/json'
 const CONTENT_TYPE_FORM_URLENCODED =
@@ -51,7 +51,7 @@ export default function Request(_url, _method) {
     return value && (headers[name] = value), self
   }
   function setAuthorization(token) {
-    return setHeader(HEAEDR_AUTHORIZATION, token)
+    return setHeader(HEADER_AUTHORIZATION, token)
   }
   function setBearerToken(token) {
     return token ? setAuthorization(`Bearer ${token}`) : self

@@ -1,6 +1,6 @@
 {
   "name": "@0y0/node-request",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Easy-to-fetch HTTP client for the NodeJS.",
   "main": "request.js",
   "repository": "https://github.com/o0y0o/request",
@@ -21,6 +21,6 @@
   ],
   "dependencies": {
     "form-data": "^4.0.0",
-    "node-fetch": "^3.2.0"
+    "node-fetch": "^2.6.7"
   }
 }
