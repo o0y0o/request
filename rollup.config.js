@@ -16,7 +16,7 @@ const nodeConfig = {
     file: path.join(__dirname, 'packages/node', nodePkg.main),
     format: 'cjs',
     exports: 'default',
-    interop: false
+    interop: 'default'
   }
 }
 
