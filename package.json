@@ -22,7 +22,7 @@
     "format": "prettier --write '{*,src/**/*}.js'",
     "lint": "eslint '{*,src/**/*}.js'",
     "test": "BABEL_ENV=test mocha -r @babel/register src/**/*.test.js",
-    "build": "rollup -c",
+    "build": "rollup -c --bundleConfigAsCjs",
     "ver": "lerna version --no-push && git tag | xargs git tag -d",
     "pkg": "lerna publish from-package --yes"
   },
