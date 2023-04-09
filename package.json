@@ -32,7 +32,7 @@
     "@babel/register": "^7.18.9",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-inject": "^5.0.3",
-    "eslint": "^8.33.0",
+    "eslint": "^8.38.0",
     "fetch-mock": "^9.11.0",
     "form-data": "^4.0.0",
     "lerna": "^6.4.1",
